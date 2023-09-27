@@ -3,21 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		207969ED29CCFA80003EBA91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207969EC29CCFA80003EBA91 /* AppDelegate.swift */; };
 		207969F229CCFA81003EBA91 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 207969F029CCFA81003EBA91 /* MainMenu.xib */; };
-		207969FA29CCFB23003EBA91 /* ThumbHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207969F929CCFB23003EBA91 /* ThumbHash.swift */; };
 		207969FC29CCFB53003EBA91 /* flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 207969FB29CCFB53003EBA91 /* flower.jpg */; };
+		F7D2D1912AC43FD700F983A5 /* ThumbHash in Frameworks */ = {isa = PBXBuildFile; productRef = F7D2D1902AC43FD700F983A5 /* ThumbHash */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		207969E929CCFA80003EBA91 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		207969EC29CCFA80003EBA91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		207969F129CCFA81003EBA91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		207969F929CCFB23003EBA91 /* ThumbHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThumbHash.swift; path = ../../swift/ThumbHash.swift; sourceTree = "<group>"; };
 		207969FB29CCFB53003EBA91 /* flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower.jpg; path = ../flower.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -26,6 +25,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D2D1912AC43FD700F983A5 /* ThumbHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,7 +36,6 @@
 			isa = PBXGroup;
 			children = (
 				207969EC29CCFA80003EBA91 /* AppDelegate.swift */,
-				207969F929CCFB23003EBA91 /* ThumbHash.swift */,
 				207969F029CCFA81003EBA91 /* MainMenu.xib */,
 				207969FB29CCFB53003EBA91 /* flower.jpg */,
 				207969EA29CCFA80003EBA91 /* Products */,
@@ -67,6 +66,9 @@
 			dependencies = (
 			);
 			name = Example;
+			packageProductDependencies = (
+				F7D2D1902AC43FD700F983A5 /* ThumbHash */,
+			);
 			productName = Example;
 			productReference = 207969E929CCFA80003EBA91 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -95,6 +97,9 @@
 				Base,
 			);
 			mainGroup = 207969E029CCFA80003EBA91;
+			packageReferences = (
+				F7D2D18F2AC43FD700F983A5 /* XCLocalSwiftPackageReference "../.." */,
+			);
 			productRefGroup = 207969EA29CCFA80003EBA91 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -121,7 +126,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				207969FA29CCFB23003EBA91 /* ThumbHash.swift in Sources */,
 				207969ED29CCFA80003EBA91 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +265,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PG9AGL8FNE;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -287,7 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PG9AGL8FNE;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -327,6 +331,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F7D2D18F2AC43FD700F983A5 /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F7D2D1902AC43FD700F983A5 /* ThumbHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ThumbHash;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 207969E129CCFA80003EBA91 /* Project object */;
 }

@@ -28,7 +28,7 @@ import Foundation
 // These optimizations brought the run time to encode and decode 10 ThumbHashes
 // in debug mode from 700ms to 70ms (10x faster).
 
-func rgbaToThumbHash(w: Int, h: Int, rgba: Data) -> Data {
+public func rgbaToThumbHash(w: Int, h: Int, rgba: Data) -> Data {
   // Encoding an image larger than 100x100 is slow with no benefit
   assert(w <= 100 && h <= 100)
   assert(rgba.count == w * h * 4)
@@ -232,7 +232,7 @@ func rgbaToThumbHash(w: Int, h: Int, rgba: Data) -> Data {
   return hash
 }
 
-func thumbHashToRGBA(hash: Data) -> (Int, Int, Data) {
+public func thumbHashToRGBA(hash: Data) -> (Int, Int, Data) {
   // Read the constants
   let h0 = UInt32(hash[0])
   let h1 = UInt32(hash[1])
@@ -412,7 +412,7 @@ func thumbHashToRGBA(hash: Data) -> (Int, Int, Data) {
   return (w, h, rgba)
 }
 
-func thumbHashToAverageRGBA(hash: Data) -> (Float32, Float32, Float32, Float32) {
+public func thumbHashToAverageRGBA(hash: Data) -> (Float32, Float32, Float32, Float32) {
   let h0 = UInt32(hash[0])
   let h1 = UInt32(hash[1])
   let h2 = UInt32(hash[2])
@@ -444,7 +444,7 @@ func thumbHashToAverageRGBA(hash: Data) -> (Float32, Float32, Float32, Float32) 
   )
 }
 
-func thumbHashToApproximateAspectRatio(hash: Data) -> Float32 {
+public func thumbHashToApproximateAspectRatio(hash: Data) -> Float32 {
   let header = hash[3]
   let hasAlpha = (hash[2] & 0x80) != 0
   let isLandscape = (hash[4] & 0x80) != 0
@@ -456,7 +456,7 @@ func thumbHashToApproximateAspectRatio(hash: Data) -> Float32 {
 #if os(macOS)
 import Cocoa
 
-func imageToThumbHash(image: NSImage) -> Data {
+public func imageToThumbHash(image: NSImage) -> Data {
   let size = image.size
   let fw = round(100 * size.width / max(size.width, size.height))
   let fh = round(100 * size.height / max(size.width, size.height))
@@ -505,7 +505,7 @@ func imageToThumbHash(image: NSImage) -> Data {
   return rgbaToThumbHash(w: w, h: h, rgba: rgba)
 }
 
-func thumbHashToImage(hash: Data) -> NSImage {
+public func thumbHashToImage(hash: Data) -> NSImage {
   let (w, h, rgba) = thumbHashToRGBA(hash: hash)
   let bitmap = NSBitmapImageRep(
     bitmapDataPlanes: nil,
@@ -558,7 +558,7 @@ func thumbHashToImage(hash: Data) -> NSImage {
 #if os(iOS)
 import UIKit
 
-func imageToThumbHash(image: UIImage) -> Data {
+public func imageToThumbHash(image: UIImage) -> Data {
   let size = image.size
   let w = Int(round(100 * size.width / max(size.width, size.height)))
   let h = Int(round(100 * size.height / max(size.width, size.height)))
@@ -607,7 +607,7 @@ func imageToThumbHash(image: UIImage) -> Data {
   return rgbaToThumbHash(w: w, h: h, rgba: rgba)
 }
 
-func thumbHashToImage(hash: Data) -> UIImage {
+public func thumbHashToImage(hash: Data) -> UIImage {
   var (w, h, rgba) = thumbHashToRGBA(hash: hash)
   rgba.withUnsafeMutableBytes { rgba in
     // Convert from unpremultiplied alpha to premultiplied alpha

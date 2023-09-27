@@ -1,4 +1,5 @@
 import Cocoa
+import ThumbHash
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
